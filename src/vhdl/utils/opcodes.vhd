@@ -11,71 +11,71 @@ package opcodes is
     -- |AM(2)|OP(6)|Rz(4)|Rx(4)|ADDR/VAL/OTHERs(16)|
     -- ---------------------------------------------
     -- addressing modes (AM)
-    constant am_inherent  : bit_2 := "00";
-    constant am_immediate : bit_2 := "01";
-    constant am_direct    : bit_2 := "10";
-    constant am_register  : bit_2 := "11";
+    constant am_inherent         : bit_2 := "00";
+    constant am_immediate        : bit_2 := "01";
+    constant am_direct           : bit_2 := "10";
+    constant am_register         : bit_2 := "11";
 
     -----------------------------	
     --   normal instructions   --
     -----------------------------
-    -- operations with immediate, direct and indirect AM
+    -- operations with immediate, direct and register AM
     -- immediate: LDR Rz #value
-    -- indirect: LDR Rz $address
-    -- direct: LDR Rz Rx
-    constant ldr          : bit_6 := "000000";
+    -- direct: LDR Rz $address
+    -- register: LDR Rz Rx
+    constant ldr                 : bit_6 := "000000";
 
     -- operations with direct and immediate AM
     -- immediate: STR Rz #value
-    -- indirect: STR Rz Rx
+    -- register: STR Rz Rx
     -- direct: STR Rx Op
-    constant str          : bit_6 := "000010";
+    constant str                 : bit_6 := "000010";
 
     -- operations with immediate and direct AM
     -- immediate: JMP #address 
     -- direct: JMP Rx 
-    constant jmp          : bit_6 := "011000";
+    constant jmp                 : bit_6 := "011000";
 
     -- operations with direct AM
     -- direct: PRESENT Rz Rx 
-    constant present      : bit_6 := "011100";
+    constant present             : bit_6 := "011100";
 
     -- operations with immediate and register AM
-    constant andr         : bit_6 := "001000"; --  AND Rz Rx Op
-    constant orr          : bit_6 := "001100"; --  OR Rz Rx Op
-    constant addr         : bit_6 := "111000"; --  ADD Rz Rx Op
-    constant subr         : bit_6 := "000100"; --  SUB Rz Op
-    constant subvr        : bit_6 := "000011"; -- SUBV RZ Rx Op
+    constant andr                : bit_6 := "001000"; --  AND Rz Rx Op
+    constant orr                 : bit_6 := "001100"; --  OR Rz Rx Op
+    constant addr                : bit_6 := "111000"; --  ADD Rz Rx Op
+    constant subr                : bit_6 := "000100"; --  SUB Rz Op
+    constant subvr               : bit_6 := "000011"; -- SUBV RZ Rx Op
 
     -- operations with inherent AM
-    constant clfz         : bit_6 := "010000";
-    constant cer          : bit_6 := "111100";
-    constant ceot         : bit_6 := "111110";
-    constant seot         : bit_6 := "111111";
-    constant noop         : bit_6 := "110100";
+    constant clfz                : bit_6 := "010000";
+    constant cer                 : bit_6 := "111100";
+    constant ceot                : bit_6 := "111110";
+    constant seot                : bit_6 := "111111";
+    constant noop                : bit_6 := "110100";
 
     -- operations with immediate AM
     -- SZ Op
-    constant sz           : bit_6 := "010100";
+    constant sz                  : bit_6 := "010100";
 
     -- operations with direct AM
     -- LER Rz
-    constant ler          : bit_6 := "110110";
+    constant ler                 : bit_6 := "110110";
 
     ----------------------------	
     --  special instructions  --
     ----------------------------
     -- operations with direct AM
     -- direct: SSVOP Rx 
-    constant ssvop        : bit_6 := "111011";
+    constant ssvop               : bit_6 := "111011";
 
     -- operations with direct AM
     -- direct: SSOP Rx 
-    constant ssop         : bit_6 := "111010";
+    constant ssop                : bit_6 := "111010";
 
     -- operations with direct AM
     -- direct: LSIP Rx 
-    constant lsip         : bit_6 := "110111";
+    constant lsip                : bit_6 := "110111";
 
     ---------------------------
     --  other instructions  --
@@ -88,14 +88,14 @@ package opcodes is
 
     -- operations with immediate AM
     -- immediate : MAX Rz #value
-    constant max          : bit_6 := "011110";
+    constant max                 : bit_6 := "011110";
 
     -- operations with direct AM
     -- direct : STRPC Rz $address
-    constant strpc        : bit_6 := "011101";
+    constant strpc               : bit_6 := "011101";
 
     -- operation with register AM
     -- register : SRES Rz
-    constant sres         : bit_6 := "101010";
+    constant sres                : bit_6 := "101010";
 
 end package;
