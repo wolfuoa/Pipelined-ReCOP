@@ -61,7 +61,8 @@ begin
     begin
         if reset = '1' then
             regs <= ((others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'), (others => '0'));
-        elsif rising_edge(clock) then
+            -- Write on the falling edge to prevent pipeline register from altering result
+        elsif falling_edge(clock) then
             -- write data into Rz if ld signal is asserted
             if write_enable = '1' then
                 regs(to_integer(unsigned(temp_rz_index))) <= data_input_z;
